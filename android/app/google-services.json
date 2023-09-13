@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "876899813106",
+    "project_id": "audio-test-7d63a",
+    "storage_bucket": "audio-test-7d63a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876899813106:android:4e64f4e412b4853f09b26b",
+        "android_client_info": {
+          "package_name": "com.mycompany.a230913"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876899813106-rtneuehr6kcfr3rf66032uu5glqr1c73.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.a230913",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "876899813106-k8jmao7scqv4oflg3a4j7baudhn2hk2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPwSabv298gujhbd7eT6wUEeOQ4WlZ9q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876899813106-0odgv4c5hgqhq5siogb4fkcqpf2addj0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "876899813106-jfbdqfbbgveo5vtrkgda27dnsj24b7q3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.audiotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876899813106:android:ed5dc2686a8297ea09b26b",
+        "android_client_info": {
+          "package_name": "com.mycompany.audiotest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876899813106-ei8temarqnti8hc8kursbntd6soocmtn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.audiotest",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "876899813106-k8jmao7scqv4oflg3a4j7baudhn2hk2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPwSabv298gujhbd7eT6wUEeOQ4WlZ9q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876899813106-0odgv4c5hgqhq5siogb4fkcqpf2addj0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "876899813106-jfbdqfbbgveo5vtrkgda27dnsj24b7q3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.audiotest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
