@@ -3,12 +3,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:record/record.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -46,26 +44,25 @@ class _HomeWidgetState extends State<HomeWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
+            await requestPermission(microphonePermission);
             if (await getPermissionStatus(microphonePermission)) {
-              _model.audioRecorder ??= Record();
-              if (await _model.audioRecorder!.hasPermission()) {
-                await _model.audioRecorder!.start();
-              } else {
-                showSnackbar(
-                  context,
-                  'You have not provided permission to record audio.',
-                );
-              }
-
-              await Future.delayed(const Duration(milliseconds: 5000));
-              _model.myRecordedAudioPath = await _model.audioRecorder?.stop();
-              await actions.uploadAudioToFirebase(
-                _model.myRecordedAudioPath,
-              );
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    'Finished',
+                    'microphone ok',
+                    style: TextStyle(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                    ),
+                  ),
+                  duration: Duration(milliseconds: 4000),
+                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                ),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'no microphone',
                     style: TextStyle(
                       color: FlutterFlowTheme.of(context).primaryText,
                     ),
@@ -75,8 +72,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               );
             }
-
-            setState(() {});
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,

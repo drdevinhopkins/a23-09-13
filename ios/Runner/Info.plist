@@ -57,8 +57,6 @@
     <string>Take a picture or video using the camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>Allow access to photo library</string>
-	<key>NSMicrophoneUsageDescription</key>
-    <string>Record audio using your microphone</string>
 
 
 
