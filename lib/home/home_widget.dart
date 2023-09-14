@@ -1,8 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
@@ -171,6 +173,84 @@ class _HomeWidgetState extends State<HomeWidget> {
                 Text(
                   currentUserUid,
                   style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                FFButtonWidget(
+                  onPressed: () async {
+                    final selectedFiles = await selectFiles(
+                      multiFile: false,
+                    );
+                    if (selectedFiles != null) {
+                      setState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                      var downloadUrls = <String>[];
+                      try {
+                        showUploadMessage(
+                          context,
+                          'Uploading file...',
+                          showLoading: true,
+                        );
+                        selectedUploadedFiles = selectedFiles
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                ))
+                            .toList();
+
+                        downloadUrls = (await Future.wait(
+                          selectedFiles.map(
+                            (f) async =>
+                                await uploadData(f.storagePath, f.bytes),
+                          ),
+                        ))
+                            .where((u) => u != null)
+                            .map((u) => u!)
+                            .toList();
+                      } finally {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                              selectedFiles.length &&
+                          downloadUrls.length == selectedFiles.length) {
+                        setState(() {
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
+                          _model.uploadedFileUrl = downloadUrls.first;
+                        });
+                        showUploadMessage(
+                          context,
+                          'Success!',
+                        );
+                      } else {
+                        setState(() {});
+                        showUploadMessage(
+                          context,
+                          'Failed to upload file',
+                        );
+                        return;
+                      }
+                    }
+                  },
+                  text: 'Upload to Firestore',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
               ],
             ),
