@@ -1,22 +1,3 @@
-Skip to content
- 
-Search…
-All gists
-Back to GitHub
-@drdevinhopkins 
-@dileepabandara
-dileepabandara/.gitignore
-Last active 7 hours ago • Report abuse
-Code
-Revisions
-8
-Stars
-47
-Forks
-17
-<script src="https://gist.github.com/dileepabandara/43f37affb84650a7e59ff04204c44aa8.js"></script>
-.gitignore for Flutter projects
-.gitignore
 ### ------------------------- Flutter.gitignore ------------------------ ###
 
 # Miscellaneous
