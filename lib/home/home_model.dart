@@ -7,11 +7,14 @@ import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:record/record.dart';
 
 class HomeModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  Record? audioRecorder;
+  String? recordedAudioPath;
 
   /// Initialization and disposal methods.
 
